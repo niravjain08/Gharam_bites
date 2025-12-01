@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gharam Bites</title>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<style>
+:root{
+  --bg:#fff8e6;
+  --primary:#ff9f1c;
+  --accent:#ffbf69;
+  --card:#ffffff;
+  --text:#2b2b2b;
+  --green:#0fa958;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Poppins', sans-serif;
+}
+
+/* Coming Soon Banner */
+.banner{
+  text-align:center;
+  padding:25px 10px;
+  background:var(--primary);
+  font-size:45px;
+  font-weight:900;
+  color:#fff;
+  text-shadow:1px 1px 4px #000;
+}
+
+/* Header */
+header{
+  text-align:center;
+  padding:40px 20px;
+}
+header img{
+  width:120px;
+  margin-bottom:15px;
+}
+header h1{
+  margin:0;
+  font-size:55px;
+  font-weight:900;
+  color:var(--primary);
+}
+header p{
+  font-size:20px;
+  margin-top:8px;
+}
+
+.veg-tag{
+  background:var(--green);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:8px;
+  display:inline-block;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* Countdown */
+#countdown{
+  font-size:32px;
+  font-weight:bold;
+  text-align:center;
+  margin-top:20px;
+  color:var(--primary);
+}
+
+/* Sections */
+.section{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  border:2px solid var(--accent);
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.card:hover{
+  transform:scale(1.05);
+  border-color:var(--primary);
+}
+.card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.card h3{
+  margin:10px 0;
+  color:var(--primary);
+  font-size:22px;
+}
+
+/* Offer box */
+.offer-box{
+  background:var(--accent);
+  padding:20px;
+  border-radius:12px;
+  color:#000;
+  font-size:20px;
+  margin:25px 0;
+  text-align:center;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Footer Info */
+footer{
+  text-align:center;
+  padding:40px;
+  font-size:20px;
+  color:var(--primary);
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop hidden>
+  <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mp3">
+</audio>
+
+<div class="banner">COMING SOON</div>
+
+<header>
+  <img src="https://via.placeholder.com/120x120?text=LOGO" alt="Logo">
+  <h1>GHARAM BITES</h1>
+  <p>Pure-Veg Snack Stall • Vedanta PU College, Raichur</p>
+  <p><strong>UTKARSH 5.0 • 2 & 3 December</strong></p>
+  <span class="veg-tag">PURE VEG</span>
+</header>
+
+<div id="countdown"></div>
+
+<script>
+// Confetti on load
+window.onload = () => {
+  confetti({ particleCount: 180, spread: 75, origin: { y: 0.6 } });
+};
+
+// Countdown Timer
+var eventDate = new Date("December 2, 2025 09:00:00").getTime();
+var timer = setInterval(function(){
+    var now = new Date().getTime();
+    var diff = eventDate - now;
+
+    if(diff <= 0){
+        document.getElementById("countdown").innerHTML = "We Are Live!";
+        clearInterval(timer);
+        return;
+    }
+
+    var days = Math.floor(diff/(1000*60*60*24));
+    var hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    var minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+    var seconds = Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+      days+"d : "+hours+"h : "+minutes+"m : "+seconds+"s";
+},1000);
+</script>
+
+<div class="section">
+<h2 style="color:var(--primary); text-align:center; font-size:35px;">Our Pure Veg Menu</h2>
+
+<div class="offer-box">
+✨ Psst... insiders whisper a special code: <strong>gharam10</strong> 👀  
+Use it wisely for **10% OFF** on selected items!  
+Plus... special **SURPRISE COMBOS** will drop at the event!
+</div>
+
+<div class="menu-grid">
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?french-fries" alt="">
+<h3>Salted Fries</h3>
+<p>Perfect crispy fries with classic seasoning.</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?peri-peri-fries" alt="">
+<h3>Peri Peri Fries</h3>
+<p>Hot, tangy and flame-packed flavour.</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?tandoori-fries" alt="">
+<h3>Tandoori Fries</h3>
+<p>Rich smoky masala like never before.</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?veg-nuggets" alt="">
+<h3>Veg Nuggets</h3>
+<p>Light, crispy and delicious veg protein bites.</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?potato-smilies" alt="">
+<h3>Smilies</h3>
+<p>Golden crunchy potato smiles!</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?cheese-balls" alt="">
+<h3>Cheese Balls</h3>
+<p>Crispy outer shell with melty cheese inside.</p>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/600x400/?paratha" alt="">
+<h3>Roti Fry</h3>
+<p>A crunchy twist to your favourite roti.</p>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2 style="color:var(--primary); text-align:center; font-size:30px;">Find Us At Vedanta PU College</h2>
+<iframe 
+  src="https://www.google.com/maps?q=Vedanta+PU+College+Raichur&output=embed" 
+  width="100%" height="350" style="border:2px solid var(--primary); border-radius:12px;">
+</iframe>
+</div>
+
+<footer>
+<strong>About UTKARSH 5.0 • Vedanta PU College, Raichur</strong><br><br>
+UTKARSH 5.0 is the annual cultural, creative and talent-driven fest of Vedanta PU College.<br>
+Expect fun, energy, competitions, food stalls and unforgettable vibes!<br><br>
+We can't wait to serve you the best pure-veg snacks at <strong>GHARAM BITES</strong>!
+</footer>
+
+</body>
+</html>
